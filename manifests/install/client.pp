@@ -33,9 +33,14 @@ class easy_ipa::install::client {
     $client_install_cmd_opts_no_ntp = '--no-ntp'
   }
 
+  if $easy_ipa::force_join {
+    $client_install_cmd_opts_force_join = '--force-join'
+  } else {
+    $client_install_cmd_opts_force_join = ''
+  }
+
     $client_install_cmd = "\
 /usr/sbin/ipa-client-install \
-  --force-join=${easy_ipa::force_join} \
   --server=${easy_ipa::ipa_master_fqdn} \
   --realm=${easy_ipa::final_realm} \
   --domain=${easy_ipa::domain} \
@@ -43,6 +48,7 @@ class easy_ipa::install::client {
   --password='${easy_ipa::final_domain_join_password}' \
   ${client_install_cmd_opts_mkhomedir} \
   ${client_install_cmd_opts_fixed_primary} \
+  ${client_install_cmd_opts_force_join} ]
   ${client_install_cmd_opts_no_ntp} \
   --unattended"
 

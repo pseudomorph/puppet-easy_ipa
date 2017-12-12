@@ -64,6 +64,13 @@ class easy_ipa::install::server {
     $server_install_cmd_opts_no_ui_redirect = '--no-ui-redirect'
   }
 
+
+  if $easy_ipa::force_join and $easy_ipa::role == 'replica' {
+    $server_install_cmd_opts_force_join = '--force-join'
+  } else {
+    $server_install_cmd_opts_force_join = ''
+  }
+
   if $easy_ipa::ipa_role == 'master' {
     contain 'easy_ipa::install::server::master'
   } elsif $easy_ipa::ipa_role == 'replica' {
