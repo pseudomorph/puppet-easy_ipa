@@ -14,6 +14,7 @@ class easy_ipa::install::server::replica {
   ${easy_ipa::install::server::server_install_cmd_opts_ip_address} \
   ${easy_ipa::install::server::server_install_cmd_opts_no_ntp} \
   ${easy_ipa::install::server::server_install_cmd_opts_no_ui_redirect} \
+  ${easy_ipa::install::server::server_install_cmd_opts_force_join} \
   --unattended"
 
   # TODO: config-show and grep for IPA\ masters
