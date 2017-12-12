@@ -50,6 +50,9 @@
 # `fixed_primary`
 #      (boolean) If true, then the parameter '--fixed-primary' is passed to the IPA installer.
 #
+# `force_join`
+#      (boolean) If true, then the parameter '--force-join' is passed to the IPA client or replica installer.
+#
 # `idstart`
 #      (integer) From the IPA man pages: "The starting user and group id number".
 #
@@ -158,6 +161,7 @@ class easy_ipa (
   Boolean       $enable_hostname                    = true,
   Boolean       $enable_ip_address                  = false,
   Boolean       $fixed_primary                      = false,
+  Boolean       $force_join                         = false,
   Integer       $idstart                            = (fqdn_rand('10737') + 10000),
   Boolean       $install_autofs                     = false,
   Boolean       $install_epel                       = true,

@@ -35,6 +35,7 @@ class easy_ipa::install::client {
 
     $client_install_cmd = "\
 /usr/sbin/ipa-client-install \
+  --force-join=${easy_ipa::force_join} \
   --server=${easy_ipa::ipa_master_fqdn} \
   --realm=${easy_ipa::final_realm} \
   --domain=${easy_ipa::domain} \
